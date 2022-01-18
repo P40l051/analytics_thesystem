@@ -21,6 +21,8 @@ export default function Home({ tokens }) {
               <h3>
                 Card {token.identifier}
               </h3>
+              <Image src={token.image.toString()} width={150} height={150} />
+              {console.log(token.image.toString())}
               <p>
                 Current Supply: {token.totalSupply.valueExact}
               </p>
