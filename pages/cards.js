@@ -1,8 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
 import Overview from '../components/overview'
 import Card from '../components/card'
 import { getTokens, getMetadatas, getTransfers } from './api/getData';

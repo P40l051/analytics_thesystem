@@ -5,12 +5,9 @@
  - Charts from Owner data could be in components/charts/owner
  - Charts from Transfers data could be in components/charts/transfers
 */
-
 import React from 'react';
 import styles from '../styles/Home.module.css'
-import Chart from 'chart.js/auto';
 import { getTokens, getMetadatas, getTransfers } from './api/getData';
-
 import { TokensBar, TokensDoughnut } from '../components/charts/tokens';
 
 export async function getStaticProps() {

@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import styles from '../../styles/Home.module.css'
 import { getToken, getTokensIds, getMetadatas, getTransfers } from '../api/getData'
 import Card from "../../components/card"

@@ -1,9 +1,7 @@
 import '../styles/globals.css'
-import styles from '../styles/Home.module.css'
 import Header from "../components/header.js"
 import Footer from "../components/footer.js"
 import Loading from '../components/loading'
-import Link from 'next/link'
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
