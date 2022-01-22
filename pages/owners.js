@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
@@ -22,10 +21,6 @@ export default function Owners({ owners, metadata }) {
     //console.log(metadata);
     return (
         <div className={styles.container}>
-            <Head>
-                <title>The System Analytics</title>
-                <meta name="This page shows TheSystem smart owners data." />
-            </Head>
             <main className={styles.main}>
                 <div className={styles.grid}>
                     {owners.map((owner) => (

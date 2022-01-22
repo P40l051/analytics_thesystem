@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Overview from '../components/overview'
 import Card from '../components/card'
@@ -17,11 +16,6 @@ export default function Cards({ tokens, metadatas, transfers }) {
     //console.log("filtereds:", filtereds);
     return (
         <div className={styles.container}>
-            <Head>
-                <title>The System Analytics</title>
-                <meta name="This page shows TheSystem smart contract active tokens and statistics." />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
             <main className={styles.main}>
                 <Overview transfers={transfers} tokens={tokens} />
                 <div className={styles.grid}>
