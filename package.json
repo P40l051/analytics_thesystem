@@ -14,8 +14,7 @@
     "react": "17.0.2",
     "react-chartjs-2": "^4.0.1",
     "react-dom": "17.0.2",
-    "react-loading": "^2.0.3",
-    "tailwindcss": "^3.0.15"
+    "react-loading": "^2.0.3"
   },
   "devDependencies": {
     "eslint": "8.7.0",
