@@ -22,7 +22,7 @@ export default function Cards({ tokens, metadatas, transfers }) {
         <div className={styles.container}>
             <Head>
                 <title>The System Analytics</title>
-                <meta name="This page shows TheSystem smart contract active tokens and statistics." />
+                <meta name="This page shows TheSystem's active tokens and statistics." />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className={styles.main}>

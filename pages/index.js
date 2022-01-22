@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>The System Analytics</title>
-        <meta name="This app shows TheSystem smart contract data." />
+        <title>The System: Analytics</title>
+        <meta name="This app shows the System's contract data." />
       </Head>
       <main className={styles.main}>
         <h1 >THE SYSTEM</h1>
