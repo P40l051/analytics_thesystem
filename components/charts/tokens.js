@@ -7,7 +7,6 @@ export function TokensBar({ tokens }) {
     const data = orderChartdata(tokens)
     return (
         <div>
-            Total Supply
             <Bar
                 data={data.props}
                 width={400}

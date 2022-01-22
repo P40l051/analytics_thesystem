@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import Head from 'next/head'
 import ReactLoading from 'react-loading';

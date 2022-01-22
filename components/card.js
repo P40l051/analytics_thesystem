@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Head from 'next/head'
-import ReactLoading from 'react-loading';
 import getMintsBurnsTransfers from "../utils/getMintsBurnsTransfers"
 
 export default function Card({ token, metadata }) {

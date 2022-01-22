@@ -1,7 +1,6 @@
 import getMintsBurnsTransfers from "../utils/getMintsBurnsTransfers"
 
 export default function Overview({ transfers, tokens }) {
-
     const data = getMintsBurnsTransfers(transfers)
     return (
         <div>
