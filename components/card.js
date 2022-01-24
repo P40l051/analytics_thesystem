@@ -6,28 +6,32 @@ import getMintsBurnsTransfers from "../utils/getMintsBurnsTransfers"
 export default function Card({ token, metadata }) {
     const data = getMintsBurnsTransfers(token.transfers)
     return (
-        <div key={token.id} className={styles.card}>
+        <Link href="/card/[token.identifier]" as={`/card/${token.identifier}`}>
+            <div key={token.id} className="shadow-lg w-60 border max-w-sm mx-auto rounded-xl  p-2 bg-white  relative overflow-hidden">
 
-            <h2>
-                Card {token.identifier}
-            </h2>
-            <p>
-                <Link href="/card/[token.identifier]" as={`/card/${token.identifier}`}>
+                <p class="text-2xl text-black font-bold mb-1" >
+                    Card {token.identifier}
+                </p>
+                <p className="flex py-1 bg-gray-100 items-center justify-center">
                     <Image src={metadata.image.toString()} width={150} height={150} />
-                </Link>
-            </p>
-            <p>
-                Current Supply: {token.totalSupply.valueExact}
-            </p>
-            <p>
-                Transfers: {data.transfers}
-            </p>
-            <p>
-                Minted: {data.mints}
-            </p>
-            <p>
-                Burned: {data.burns}
-            </p>
-        </div>
+                </p>
+                <div className="mt-4" >
+                    <p>
+                        Current Supply: {token.totalSupply.valueExact}
+                    </p>
+                    <p>
+                        Transfers: {data.transfers}
+                    </p>
+                    <p>
+                        Minted: {data.mints}
+                    </p>
+                    <p>
+                        Burned: {data.burns}
+                    </p>
+                </div>
+
+            </div>
+
+        </Link>
     )
 }

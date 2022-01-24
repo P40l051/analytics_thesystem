@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css'
 
 const Header = () => (
     <nav >
-        <div className={styles.header}>
+        <div className="py-6 px-10 z-40 fixed bg-white flex font-mono border-b w-full justify-between ">
             <Link href="/">
                 <a>
                     Home

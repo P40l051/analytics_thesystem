@@ -1,4 +1,3 @@
-import styles from '../styles/Home.module.css'
 import Overview from '../components/overview'
 import Card from '../components/card'
 import { getTokens, getMetadatas, getTransfers } from './api/getData';
@@ -15,16 +14,23 @@ export default function Cards({ tokens, metadatas, transfers }) {
     const filtereds = transfers.filter(transfer => transfer.from == null);
     //console.log("filtereds:", filtereds);
     return (
-        <div className={styles.container}>
-            <main className={styles.main}>
-                <Overview transfers={transfers} tokens={tokens} />
-                <div className={styles.grid}>
+
+        <div className="py-20 min-h-screen">
+            <Overview transfers={transfers} tokens={tokens} />
+            <div className="mt-4 w-11/12 mx-auto shadow-lg border rounded-xl p-4 bg-white relative overflow-hidden">
+                <p class="px-2 py-2 text-gray-800 text-xl font-medium">
+                    Collection
+                </p>
+                <div className="mt-4 grid grid-cols-1 gap-y-10  sm:grid-cols-2 lg:grid-cols-3 ">
                     {tokens.map((token) => (
+
                         <Card token={token} metadata={metadatas[token.identifier - 1]} />
+
                     ))}
                 </div>
-            </main>
+            </div>
         </div>
+
     )
 }
 

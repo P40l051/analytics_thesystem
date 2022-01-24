@@ -2,9 +2,23 @@ import React from 'react';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import orderChartdata from "../../utils/orderchartdata"
+import orderChartdatadue from "../../utils/orderChartdatadue"
 
 export function TokensBar({ tokens }) {
     const data = orderChartdata(tokens)
+    return (
+        <div>
+            <Bar
+                data={data.props}
+                width={400}
+                height={200}
+            />
+        </div>
+    );
+}
+
+export function TokensBarMix({ tokens }) {
+    const data = orderChartdatadue(tokens)
     return (
         <div>
             <Bar

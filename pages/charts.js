@@ -8,7 +8,7 @@
 import React from 'react';
 import styles from '../styles/Home.module.css'
 import { getTokens, getMetadatas, getTransfers } from './api/getData';
-import { TokensBar, TokensDoughnut } from '../components/charts/tokens';
+import { TokensBar, TokensBarMix, TokensDoughnut } from '../components/charts/tokens';
 
 export async function getStaticProps() {
     var data = {};
@@ -21,12 +21,15 @@ export async function getStaticProps() {
 
 export default function Charts({ tokens }) {
     return (
-        <main className={styles.main}>
-            <div>
+        <main className=" py-20 w-2/3 min-h-screen mx-auto items-center justify-center">
+            <div className="mt-10 shadow-lg border rounded-xl p-4 bg-white dark:bg-gray-800 relative overflow-hiddenr">
                 <TokensBar tokens={tokens} />
             </div>
-            <p>{"  "}</p>
-            <div>
+            <div className="mt-10 shadow-lg border rounded-xl p-4 bg-white dark:bg-gray-800 relative overflow-hiddenr">
+                try to eliminate labels
+                <TokensBarMix tokens={tokens} />
+            </div>
+            <div className="mt-10 w-2/3 shadow-lg border rounded-xl p-4 bg-white dark:bg-gray-800 relative overflow-hiddenr">
                 <TokensDoughnut tokens={tokens} />
             </div>
         </main>

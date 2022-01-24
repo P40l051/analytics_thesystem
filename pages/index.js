@@ -2,10 +2,10 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 >THE SYSTEM</h1>
-      </main>
+    <div className="min-h-screen  flex items-center justify-center">
+
+      <a className="font-mono align-middle text-xl">THE SYSTEM</a>
+
     </div>
   )
 }
