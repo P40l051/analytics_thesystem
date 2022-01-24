@@ -4,14 +4,8 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import { getOwners, getMetadatas } from './api/getData';
 import getMintsBurnsTransfers from "../utils/getMintsBurnsTransfers"
+import getStaticProps from '../utils/properties';
 
-export async function getStaticProps() {
-    var data = {};
-    const me = await getMetadatas()
-    const ow = await getOwners()
-    data = { props: { metadata: me, owners: ow } }
-    return data;
-}
 
 export function getDate(_timestamp) {
     let date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(_timestamp)
