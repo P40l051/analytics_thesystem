@@ -1,10 +1,9 @@
-import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import { getOwners, getMetadatas } from './api/getData';
 import getMintsBurnsTransfers from "../utils/getMintsBurnsTransfers"
-import getStaticProps from '../utils/properties';
+import Modal from '../components/modal';
 
 
 export function getDate(_timestamp) {
@@ -15,88 +14,49 @@ export function getDate(_timestamp) {
 export default function Owners({ owners, metadata }) {
     //console.log(metadata);
     return (
-        <div className={styles.container}>
-            <Head>
-                <title>The System Analytics</title>
-                <meta name="This page shows TheSystem smart owners data." />
-            </Head>
-            <main className={styles.main}>
-                <div className={styles.grid}>
-                    {owners.map((owner) => (
-                        <div key={owner.id} className={styles.card}>
-                            <Link href="/owner/[id]" as={`/owner/${owner.id}`}>
-                                <h2> {owner.id}</h2>
-                            </Link>
-                            <div className={styles.card}>
-                                {owner.balances.map((balance) => (
-                                    <Image src={metadata[(balance.id.split("/")[0].split("x")[1] - 1)].image.toString()} width={80} height={80} />
-                                ))}
-                            </div>
+
+        <main className="py-20 mx-auto min-h-screen">
+            <div className="mx-auto flex-col">
+                {owners.map((owner) => (
+                    <div key={owner.id} className=" py-6 mb-4 border rounded-xl mx-auto justify-center  w-11/12">
+                        <p className="mx-auto flex justify-center text-2xl font-bold mb-4"> {owner.id}</p>
+                        <div className=" w-full mx-auto grid grid-flex gap-y-4 gap-x-2 row-span-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 ">
                             {owner.balances.map((balance) => (
-                                <div key={owner.id} className={styles.cardowner}>
-                                    <div key={balance.id} className={styles.subList} >
-                                        <h3>Card {balance.id.split("/")[0].split("x")[1]}</h3>
+                                <div className="border shadow-lg w-60 mx-auto max-w-sm rounded-xl  p-2 bg-white  relative overflow-hidden">
+                                    <div className="flex justify-between">
+                                        <p class="text-2xl text-black font-bold mb-1">Card {balance.id.split("/")[0].split("x")[1]}</p>
+                                        <div className=" float-right leading-none font-semibold">
+                                            <Modal balance={balance} />
+                                        </div>
+                                    </div>
+                                    <p className="flex py-1 bg-gray-100 items-center justify-center">
+                                        <Image src={metadata[(balance.id.split("/")[0].split("x")[1] - 1)].image.toString()} width={80} height={80} />
+                                    </p>
+                                    <div>
+                                        <p>Owned: {balance.valueExact}</p>
                                         <p>
-                                            <Image src={metadata[(balance.id.split("/")[0].split("x")[1] - 1)].image.toString()} width={80} height={80} />
+                                            {"Mints: " + getMintsBurnsTransfers(balance.transferToEvent).mints}
                                         </p>
-                                        <div className={styles.subList}>
-                                            <h4>Overview</h4>
-                                            <p>Owned: {balance.valueExact}</p>
-                                            <p>
-                                                {"Mints: " + getMintsBurnsTransfers(balance.transferToEvent).mints}
-                                            </p>
-                                            <p>
-                                                {"Burns: " + getMintsBurnsTransfers(balance.transferFromEvent).burns}
-                                            </p>
-                                            <p>
-                                                {"Transfers IN : " + getMintsBurnsTransfers(balance.transferToEvent).transfers}
-                                            </p>
-                                            <p>
-                                                {"Transfers OUT: " + getMintsBurnsTransfers(balance.transferFromEvent).transfers}
-                                            </p>
-                                        </div>
-                                        <div className={styles.card}>
-                                            <h3>Detalied transfers</h3>
-                                            <div className={styles.card} >
-                                                <p>
-                                                    Transfers IN: {balance.transferToEvent.reduce(function (tot, arr) {
-                                                        { return tot + parseInt(arr.valueExact) }
-                                                    }, 0)}
-                                                </p>
-                                                {balance.transferToEvent.map((toEvent) => (
-                                                    <div key={toEvent.id} className={styles.card} >
-                                                        {toEvent.from == null && <p>MINT</p>}
-                                                        {toEvent.from != null && <p>FROM:{" " + toEvent.from.id}</p>}
-                                                        <p>{"Date: " + getDate(toEvent.timestamp * 1000)}</p>
-                                                        <p> N° Tokens: {toEvent.valueExact}</p>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                            <div className={styles.card} >
-                                                <p>
-                                                    Transfers OUT: {balance.transferFromEvent.reduce(function (tot, arr) {
-                                                        { return tot + parseInt(arr.valueExact) }
-                                                    }, 0)}
-                                                </p>
-                                                {balance.transferFromEvent.map((fromEvent) => (
-                                                    <div key={fromEvent.id} className={styles.card} >
-                                                        {fromEvent.to == null && <p>BURN</p>}
-                                                        {fromEvent.to != null && <p>TO:{" " + fromEvent.to.id}</p>}
-                                                        <p>{"Date: " + getDate(fromEvent.timestamp * 1000)}</p>
-                                                        <p>N° Tokens: {fromEvent.valueExact}</p>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </div>
+                                        <p>
+                                            {"Burns: " + getMintsBurnsTransfers(balance.transferFromEvent).burns}
+                                        </p>
+                                        <p>
+                                            {"Transfers IN : " + getMintsBurnsTransfers(balance.transferToEvent).transfers}
+                                        </p>
+                                        <p>
+                                            {"Transfers OUT: " + getMintsBurnsTransfers(balance.transferFromEvent).transfers}
+                                        </p>
                                     </div>
                                 </div>
                             ))}
                         </div>
-                    ))}
-                </div>
-            </main>
+
+                    </div>
+                ))}
+            </div>
+        </main>
 
 
-        </div>
+
     )
 }
