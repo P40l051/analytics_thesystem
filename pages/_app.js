@@ -1,9 +1,8 @@
 import '../styles/globals.css'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head'
 import Header from "../components/header.js"
 import Footer from "../components/footer.js"
 import Loading from '../components/loading'
-import Link from 'next/link'
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
@@ -32,6 +31,10 @@ function MyApp({ Component, pageProps }) {
     return <Loading />
   } else return (
     <><div>
+      <Head>
+        <title>The System Analytics</title>
+        <meta name="This website shows TheSystem smart contract data." />
+      </Head>
       <Header />
       <Component {...pageProps} />
       <Footer />

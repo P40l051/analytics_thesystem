@@ -1,6 +1,6 @@
 /*
- WARNING: this function work correctly only for when complete transfers input
- be careful using it like for balace transfers:
+ WARNING: this function works correctly only for transfers.
+ Be careful using it for balace transfers:
 - on balance.transferToEvent is OK only mints result 
 - or balance.transferFromEvent is OK only burns result
 */

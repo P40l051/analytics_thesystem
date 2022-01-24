@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import styles from '../../styles/Home.module.css'
 import { getToken, getTokensIds, getMetadatas, getTransfers } from '../api/getData'
 import Card from "../../components/card"
@@ -32,12 +31,10 @@ export default function Cardpage({ token, metadata }) {
   if (router.isFallback) {
     return <div />
   } else return (
-    < main className={styles.main} >
-      <h1>Card: {token.identifier}</h1>
-      <p>url: {metadata.image}</p>
+    <div className="py-24 min-h-screen" >
       <Card token={token} metadata={metadata} />
       <TransferList transfers={token.transfers} />
-    </main >
+    </div >
   )
 }
 

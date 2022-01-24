@@ -13,7 +13,7 @@ export default function orderChartdata(tokens) {
         colorsborder.push(color[0])
     }
     const dataset = {
-        data: totalS, backgroundColor: colors, borderColor: colorsborder, borderWidth: 1
+        label: 'Total Supply', data: totalS, backgroundColor: colors, borderColor: colorsborder, borderWidth: 1
     };
     return {
         props: { labels: labels, datasets: [dataset] }
