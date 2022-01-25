@@ -1,9 +1,10 @@
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import Link from 'next/link'
+
 import { getOwners, getMetadatas } from './api/getData';
 import getMintsBurnsTransfers from "../utils/getMintsBurnsTransfers"
 import Modal from '../components/modal';
+import SearchBar from '../components/search';
+import React, { useState } from 'react';
 
 
 export async function getStaticProps() {
@@ -21,9 +22,25 @@ export function getDate(_timestamp) {
 }
 
 export default function Owners({ owners, metadata }) {
-    //console.log(metadata);
+    const [searchQuery, setSearchQuery] = useState('');
+    const filterOwners = (owners, query) => {
+        if (!query) {
+            return owners;
+        }
+        return owners.filter((owner) => {
+            const ownerID = owner.id.toLowerCase();
+            return ownerID.includes(query.toLowerCase());
+        });
+    };
+    const filteredOwners = filterOwners(owners, searchQuery);
     return (
         <main className="py-20 mx-auto min-h-screen">
+            <div>
+                <SearchBar
+                    searchQuery={searchQuery}
+                    setSearchQuery={setSearchQuery}
+                />
+            </div>
             <div className="mx-auto flex-col">
                 {owners.map((owner, index) => (
                     <div key={index} id={index} className="py-6 mb-4 border rounded-xl mx-auto justify-center  w-11/12">
