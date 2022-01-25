@@ -1,4 +1,4 @@
-import dynamicColors from "./dinamiccolors";
+import dynamicColors from "./dynamiccolors";
 import getMintsBurnsTransfers from "./getMintsBurnsTransfers";
 
 export default function orderChartdatadue(tokens) {

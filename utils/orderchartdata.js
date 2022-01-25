@@ -1,4 +1,4 @@
-import dynamicColors from "./dinamiccolors";
+import dynamicColors from "./dynamiccolors";
 
 export default function orderChartdata(tokens) {
     var totalS = [];
