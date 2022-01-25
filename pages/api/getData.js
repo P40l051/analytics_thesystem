@@ -107,7 +107,7 @@ export async function getTransfers() {
     query: gql`
       query Tokens {
   transfers{
-  id
+    id
     timestamp
     valueExact
     token {

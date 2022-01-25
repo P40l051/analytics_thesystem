@@ -11,8 +11,9 @@ export async function getStaticProps() {
     return data;
 }
 export default function Cards({ tokens, metadatas, transfers }) {
+    console.log("filtereds:");
     const filtereds = transfers.filter(transfer => transfer.from == null);
-    //console.log("filtereds:", filtereds);
+    // console.log("filtereds:", filtereds);
     return (
 
         <div className="py-20 min-h-screen">
@@ -23,11 +24,12 @@ export default function Cards({ tokens, metadatas, transfers }) {
                 </p>
                 <div className="mt-4 grid grid-cols-1 gap-y-10  sm:grid-cols-2 lg:grid-cols-3 ">
                     {tokens.map((token) => (
+                        <Card token={token} metadata={metadatas[token.identifier - 1]} />
                         <div key={token.id}>
                             <Card token={token} metadata={metadatas[token.identifier - 1]} />
                         </div>
                     ))}
-                </div>
+                </div> 
             </div>
         </div>
 

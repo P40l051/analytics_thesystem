@@ -24,6 +24,11 @@ const Header = () => (
                     Charts
                 </a>
             </Link>
+            <Link href="/transfers">
+                <a>
+                    Transfers
+                </a>
+            </Link>
         </div>
     </nav>
 )
