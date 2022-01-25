@@ -1,5 +1,5 @@
 import React from "react";
-import { getDate } from "../pages/owners"
+import getDate from "../utils/getdate"
 
 export default function Modal({ balance }) {
     const [showModal, setShowModal] = React.useState(false);
@@ -59,7 +59,7 @@ export default function Modal({ balance }) {
                                                 <div className="py-2 mb-1 w-1/2 px-6" key={toEvent.id}  >
                                                     {toEvent.from == null && <p className=" text-green-500 font-bold">MINT</p>}
                                                     {toEvent.from != null && <p className=" text-yellow-500 font-bold">FROM:{" " + toEvent.from.id}</p>}
-                                                    <p>{"Date: " + getDate(toEvent.timestamp * 1000)}</p>
+                                                    <p>{"Date: " + getDate(toEvent.timestamp)}</p>
                                                     <p> N° Tokens: {toEvent.valueExact}</p>
                                                 </div>
                                             ))}
@@ -74,7 +74,7 @@ export default function Modal({ balance }) {
                                                 <div className="py-2 mb-1 w-1/2 px-6" key={fromEvent.id}  >
                                                     {fromEvent.to == null && <p className=" text-red-500 font-bold">BURN</p>}
                                                     {fromEvent.to != null && <p className=" text-yellow-500 font-bold">TO:{" " + fromEvent.to.id}</p>}
-                                                    <p>{"Date: " + getDate(fromEvent.timestamp * 1000)}</p>
+                                                    <p>{"Date: " + getDate(fromEvent.timestamp)}</p>
                                                     <p>N° Tokens: {fromEvent.valueExact}</p>
                                                 </div>
                                             ))}
