@@ -1,4 +1,4 @@
-import getDate from "../utils/gettime"
+import getDate from "../utils/getdate"
 
 export default function TransferList({ transfers }) {
     return (
