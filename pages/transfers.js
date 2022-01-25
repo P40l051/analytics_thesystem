@@ -31,7 +31,8 @@ export function getDate(_timestamp) {
 
 export default function Transfers({ transfers, metadata }) {
     // { console.log(getDate(tx.timestamp * 1000)) }
-    { console.log(transfers[0])
+    {
+        console.log(transfers[0])
         // var date = getDate(transfers[0].timestamp * 1000) 
         console.log(transfers[0].timestamp)
         console.log(getDate(transfers[0].timestamp))
@@ -42,10 +43,10 @@ export default function Transfers({ transfers, metadata }) {
                 <title>The System Transfer Analytics</title>
                 <meta name="This page shows transfers in the System." />
             </Head>
-            <main className={styles.trasfers}>
+            <main className="py-32 w-2/3 min-h-screen mx-auto items-center justify-center">
                 <h1>Transfers</h1>
-                <ValueOverTime transfers={ transfers } />
-                    {/* // transfers.map((tx, idx) => (
+                <ValueOverTime transfers={transfers} />
+                {/* // transfers.map((tx, idx) => (
                         // console.log('logging from console', tx)
                         // {tx.id}
                         // <div key={idx}>
@@ -59,5 +60,5 @@ export default function Transfers({ transfers, metadata }) {
                     // )) */}
             </main>
         </div>
-);
+    );
 }
