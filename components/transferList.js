@@ -14,7 +14,7 @@ export default function TransferList({ transfers }) {
                     {(transfer.from != null && transfer.to != null) && <p className=" text-yellow-500 font-bold">TRANSFER</p>}
                     {(transfer.from != null && transfer.to != null) && <p className="font-bold">from:{" " + transfer.from.id}</p>}
                     {(transfer.from != null && transfer.to != null) && <p className="font-bold">to:{" " + transfer.to.id}</p>}
-                    <p>{"Date: " + getDate(transfer.timestamp * 1000)}</p>
+                    <p>{"Date: " + getDate(transfer.timestamp)}</p>
                     <p> N° Tokens: {transfer.valueExact}</p>
                 </div>
             ))}
