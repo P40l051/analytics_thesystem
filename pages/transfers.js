@@ -11,8 +11,8 @@ import styles from '../styles/Home.module.css'
 import Chart from 'chart.js/auto';
 import { getTransfers, getMetadatas } from './api/getData';
 import { ValueOverTime } from '../components/charts/transfers';
-// import getDate from './owners';
-// getstaticpaths first
+import getDate from '../utils/getdate';
+
 export async function getStaticProps() {
     var data = {};
     const me = await getMetadatas()
@@ -23,11 +23,6 @@ export async function getStaticProps() {
     console.log(tr)
     return data;
 }
-export function getDate(_timestamp) {
-    let date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(_timestamp * 1000)
-    return date
-}
-// import { TokensBar, TokensDoughnut } from '../components/charts/tokens';
 
 export default function Transfers({ transfers, metadata }) {
     // { console.log(getDate(tx.timestamp * 1000)) }

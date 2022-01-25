@@ -5,6 +5,7 @@ import getMintsBurnsTransfers from "../utils/getMintsBurnsTransfers"
 import Modal from '../components/modal';
 import SearchBar from '../components/search';
 import React, { useState } from 'react';
+import getDate from '../utils/getdate';
 
 
 export async function getStaticProps() {
@@ -14,11 +15,6 @@ export async function getStaticProps() {
     data = { props: { metadata: me, owners: ow } }
     console.log(ow)
     return data;
-}
-
-export function getDate(_timestamp) {
-    let date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(_timestamp)
-    return date
 }
 
 export default function Owners({ owners, metadata }) {
@@ -55,7 +51,7 @@ export default function Owners({ owners, metadata }) {
                                             <Modal balance={balance} />
                                         </div>
                                     </div>
-                                    
+
                                     {/*<p className="flex py-1 bg-gray-100 items-center justify-center">
                                         <Image src={metadata[(balance.id.split("/")[0].split("x")[1] - 1)].image.toString()} width={80} height={80} />
                                     </p>*/}
@@ -72,10 +68,10 @@ export default function Owners({ owners, metadata }) {
                                         </p>
                                         <p>
                                             {"Transfers OUT: " + getMintsBurnsTransfers(balance.transferFromEvent).transfers}
-                                        </p> 
-                                    </div> 
+                                        </p>
+                                    </div>
                                 </div>
-                            ))} 
+                            ))}
                         </div>
 
                     </div>
