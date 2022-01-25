@@ -17,6 +17,7 @@ export async function getStaticProps() {
     return data;
 }
 
+
 export default function Owners({ owners, metadata }) {
     const [searchQuery, setSearchQuery] = useState('');
     const filterOwners = (owners, query) => {
@@ -38,7 +39,7 @@ export default function Owners({ owners, metadata }) {
                 />
             </div>
             <div className="mx-auto flex-col">
-                {owners.map((owner, index) => (
+                {filteredOwners.map((owner, index) => (
                     <div key={index} id={index} className="py-6 mb-4 border rounded-xl mx-auto justify-center  w-11/12">
                         <p className="mx-auto flex justify-center text-2xl font-bold mb-4"> {owner.id}</p>
                         <div className=" w-full mx-auto grid grid-flex gap-y-4 gap-x-2 row-span-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 ">
