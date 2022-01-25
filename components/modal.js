@@ -28,11 +28,11 @@ export default function Modal({ balance }) {
                                         <p className="text-3xl font-semibold">
                                             Card: {balance.id.split("/")[0].split("x")[1]}
                                         </p>
-                                        <p class="text-gray-600 text-xl">
+                                        <p className="text-gray-600 text-xl">
 
                                             Owner: {balance.id.split("/")[1]}
                                         </p>
-                                        <p class="text-gray-600 text-xl">
+                                        <p className="text-gray-600 text-xl">
 
                                             Transactions
                                         </p>
@@ -50,13 +50,13 @@ export default function Modal({ balance }) {
                                 <div className="relative  border flex-auto">
                                     <div>
                                         <div className="items-start justify-between overflow-y-scroll p-5 border-b border-solid border-blueGray-200 " >
-                                            <p class=" px-4 font-bold text-xl text-black">
+                                            <p className=" px-4 font-bold text-xl text-black">
                                                 Transactions IN: {balance.transferToEvent.reduce(function (tot, arr) {
                                                     { return tot + parseInt(arr.valueExact) }
                                                 }, 0)}
                                             </p>
                                             {balance.transferToEvent.map((toEvent) => (
-                                                <div class="py-2 mb-1 w-1/2 px-6" key={toEvent.id}  >
+                                                <div className="py-2 mb-1 w-1/2 px-6" key={toEvent.id}  >
                                                     {toEvent.from == null && <p className=" text-green-500 font-bold">MINT</p>}
                                                     {toEvent.from != null && <p className=" text-yellow-500 font-bold">FROM:{" " + toEvent.from.id}</p>}
                                                     <p>{"Date: " + getDate(toEvent.timestamp * 1000)}</p>
@@ -65,13 +65,13 @@ export default function Modal({ balance }) {
                                             ))}
                                         </div>
                                         <div className="items-start justify-between overflow-y-scroll p-5 border-b border-solid border-blueGray-200 " >
-                                            <p class=" px-4 font-bold text-xl text-black">
+                                            <p className=" px-4 font-bold text-xl text-black">
                                                 Transactions OUT: {balance.transferFromEvent.reduce(function (tot, arr) {
                                                     { return tot + parseInt(arr.valueExact) }
                                                 }, 0)}
                                             </p>
                                             {balance.transferFromEvent.map((fromEvent) => (
-                                                <div class="py-2 mb-1 w-1/2 px-6" key={fromEvent.id}  >
+                                                <div className="py-2 mb-1 w-1/2 px-6" key={fromEvent.id}  >
                                                     {fromEvent.to == null && <p className=" text-red-500 font-bold">BURN</p>}
                                                     {fromEvent.to != null && <p className=" text-yellow-500 font-bold">TO:{" " + fromEvent.to.id}</p>}
                                                     <p>{"Date: " + getDate(fromEvent.timestamp * 1000)}</p>
