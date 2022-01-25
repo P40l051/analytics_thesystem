@@ -5,10 +5,11 @@ import getMintsBurnsTransfers from "../utils/getMintsBurnsTransfers"
 
 export default function Card({ token, metadata }) {
     const data = getMintsBurnsTransfers(token.transfers)
+    console.log(token.id)
+    console.log(token.identifier)
     return (
         <Link href="/card/[token.identifier]" as={`/card/${token.identifier}`}>
-            <div key={token.id} className="shadow-lg w-60 border max-w-sm mx-auto rounded-xl  p-2 bg-white  relative overflow-hidden">
-
+            <div key={token.identifier} className="shadow-lg w-60 border max-w-sm mx-auto rounded-xl  p-2 bg-white  relative overflow-hidden">
                 <p className="text-2xl text-black font-bold mb-1" >
                     Card {token.identifier}
                 </p>
@@ -29,9 +30,7 @@ export default function Card({ token, metadata }) {
                         Burned: {data.burns}
                     </p>
                 </div>
-
             </div>
-
         </Link>
     )
 }
