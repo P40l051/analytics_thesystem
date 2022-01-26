@@ -106,7 +106,7 @@ export async function getTransfers() {
   const { data } = await client.query({
     query: gql`
       query Tokens {
-  transfers{
+  transfers(orderBy:timestamp, orderDirection:asc){
     id
     timestamp
     valueExact
