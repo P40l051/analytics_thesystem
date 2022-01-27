@@ -1,11 +1,10 @@
 import Head from 'next/head'
-
 import React from 'react';
 import styles from '../styles/Home.module.css'
 import Chart from 'chart.js/auto';
 import { getTransfers, getMetadatas } from './api/getData';
 import { ValueOverTime } from '../components/charts/transfers';
-import getDate from '../utils/getdate';
+
 
 export async function getStaticProps() {
     var data = {};
