@@ -23,8 +23,8 @@ export default function timeData(transfers) {
             _vt.push(Number(transfers[i].valueExact))
             _vm.push(Number(transfers[i].valueExact))
             _vts.push(Number(transfers[i].valueExact))
-            _vb.push(Number(0))
-            _vtr.push(Number(0))
+            _vb.push(Number(transfers[i].valueExact))
+            _vtr.push(Number(transfers[i].valueExact))
             labels.push(getDate(transfers[i].timestamp));
         }
         else if (transfers[i].timestamp == transfers[i - 1].timestamp) {
@@ -64,14 +64,6 @@ export default function timeData(transfers) {
         colors_vb.push("red")
         colors_vtr.push("orange")
     }
-    console.log("length vt:", _vt.length)
-    console.log("vt:", _vt)
-    console.log("length vm:", _vm.length)
-    console.log("vm:", _vm)
-    console.log("length vb:", _vb.length)
-    console.log("vb:", _vb)
-    console.log("length vtr:", _vtr.length)
-    console.log("vtr:", _vtr)
 
     const dataset_vt = {
         label: 'Value over time',
@@ -109,14 +101,12 @@ export default function timeData(transfers) {
         borderWidth: 1
     };
 
-    console.log(_vt)
     return {
         props: { labels: labels, datasets: [dataset_vt, dataset_vts, dataset_vm, dataset_vb, dataset_vtr] }
     }
 }
 export function ValueOverTime({ transfers }) {
     const data = timeData(transfers)
-    console.log(data.props.labels)
     return (
         <div>
             <Line
