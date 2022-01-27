@@ -14,7 +14,6 @@ export async function getStaticProps() {
     const tr = await getTransfers()
     // data = { props: { metadatas: me, tokens: to, transfers: tr } }
     data = { props: { transfers: tr } }
-    console.log(tr)
     return data;
 }
 
