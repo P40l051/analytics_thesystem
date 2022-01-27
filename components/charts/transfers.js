@@ -10,17 +10,18 @@ export default function timeData(transfers) {
     var colors = [];
     var colorsborder = [];
     for (let i = 0; i < transfers.length; i++) {
-        // totalS.push(transfers[i].totalSupply.valueExact);
-        labels.push(getDate(transfers[i].timestamp));
-        if (i == 0)
+        if (i == 0) {
             _vt.push(Number(transfers[i].valueExact))
-        else
-            _vt.push(Number(_vt[i - 1]) + Number(transfers[i].valueExact))
-
+            labels.push(getDate(transfers[i].timestamp));
+        }
+        else if (transfers[i].timestamp == transfers[i - 1].timestamp) {
+            _vt[_vt.length - 1] = _vt[_vt.length - 1] + Number(transfers[i].valueExact)
+        } else {
+            _vt.push(Number(transfers[i].valueExact) + _vt[_vt.length - 1])
+            labels.push(getDate(transfers[i].timestamp))
+        }
         console.log(transfers[i])
-        var color = dynamicColors(-10);
-        colors.push(color[1])
-        // colorsborder.push(color[0])
+        colors.push("red")
     }
     const dataset = {
         label: 'Value over time',
@@ -40,8 +41,6 @@ export function ValueOverTime({ transfers }) {
     return (
         <div>
             <Line
-                // labels={ [1, 2, 3, 4, 5]}
-                // data={ [1, 2, 3, 4, 5] }
                 data={data.props}
                 width={400}
                 height={200}
