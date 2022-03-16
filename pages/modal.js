@@ -45,6 +45,7 @@ export default function Modal() {
         await web3Modal.clearCachedProvider()
         console.log("CachedProvider cleared!")
         setAddress(false)
+        setProvider(null)
     }
 
     async function askUri() {
