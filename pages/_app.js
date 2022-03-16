@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import Head from 'next/head'
-import Header from "../components/header.js"
+import Navbar from "../components/navbar.js"
 import Footer from "../components/footer.js"
 import Loading from '../components/loading'
 
@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
         <title>The System Analytics</title>
         <meta name="This website shows TheSystem smart contract data." />
       </Head>
-      <Header />
+      <Navbar />
       <Component {...pageProps} />
       <Footer />
     </div>

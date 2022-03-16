@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
-const Header = () => (
+const Navbar = () => (
     <nav >
         <div className="py-6 px-10 z-40 fixed bg-white flex font-mono border-b w-full justify-between ">
             <Link href="/">
@@ -29,8 +29,13 @@ const Header = () => (
                     Transfers
                 </a>
             </Link>
+            <Link href="/modal">
+                <a>
+                    Modal
+                </a>
+            </Link>
         </div>
     </nav>
 )
 
-export default Header
+export default Navbar
