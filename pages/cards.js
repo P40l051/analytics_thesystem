@@ -14,7 +14,6 @@ export default function Cards({ tokens, metadatas, transfers }) {
     var ourDate = new Date();
     var pastDate = ourDate.getDate() - 30;
     const filtereds = transfers.filter(transfer => transfer.timestamp > pastDate);
-    console.log("filtereds:", filtereds);
     return (
 
         <div className="py-20 min-h-screen">

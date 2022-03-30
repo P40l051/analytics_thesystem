@@ -5,8 +5,6 @@ import getMintsBurnsTransfers from "../utils/getMintsBurnsTransfers"
 
 export default function Card({ token, metadata }) {
     const data = getMintsBurnsTransfers(token.transfers)
-    console.log(token.id)
-    console.log(token.identifier)
     return (
         <Link href="/card/[token.identifier]" as={`/card/${token.identifier}`}>
 
